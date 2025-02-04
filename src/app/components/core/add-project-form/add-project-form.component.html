@@ -1,0 +1,21 @@
+<div class="shadow">
+    
+</div>
+
+<div class="form-container">
+    <div class="close-btn" (click)="global.showAddProject.set(false)">
+        <span></span>
+        <span></span>
+    </div>
+    <form class="addprojectform">
+        <h2>Створити новий проект</h2>
+        <input form="addprojectform" [(ngModel)]="name" name="name" type="text" placeholder="Назва проекту">
+        <label for="colortheme">Виберіть кольорову тему: </label>
+        <div class="color-select">
+            <div class="purple form-color-select-btn" (click)="selectColor(ColorTheme.Purple)"></div>
+            <div class="cyan form-color-select-btn" (click)="selectColor(ColorTheme.Cyan)"></div>
+            <div class="orange form-color-select-btn" (click)="selectColor(ColorTheme.Orange)"></div>
+        </div>
+        <button mat-button (click)="createProject()">Створити</button>
+    </form>
+</div>

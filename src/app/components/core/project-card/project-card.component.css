@@ -1,0 +1,10 @@
+.card{
+    background: var(--purple-card);
+    height: 15rem;
+    width: 100%;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    box-sizing: border-box;
+    color: black;
+    margin-bottom: 1.25rem;
+}

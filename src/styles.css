@@ -1,0 +1,128 @@
+:root{
+    --purple-card: linear-gradient(120deg, rgb(187, 7, 187) 50%, rgb(92, 1, 92) 110%);
+    --cyan-card: linear-gradient(120deg, cyan 50%, rgb(2, 152, 152) 110%);
+    --orange-card: linear-gradient(120deg, orange 50%, rgb(162, 108, 8) 110%);
+}
+
+html{ color: white; user-select: none;}
+html, body { height: 100%; }
+body { 
+    margin: 0;
+    background-color: rgb(19, 19, 19); 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+input{
+    outline: 0;
+}
+input[type="text"]{
+    border: 1px solid rgb(143, 108, 145);;
+    background-color: rgb(33,33,33);
+    border-radius: 0.25rem;
+    width: 100%;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 1rem;
+    padding: 0.25rem;
+    color: white;
+}
+.form-container{
+    position: fixed;
+    transform: translateX(-50%);
+    left: 50%;
+    height: 22rem;
+    width: 18rem;
+    z-index: 10;
+    background-color: rgb(15, 15, 15);
+    border-radius: 0.75rem;
+    border: 1px solid rgb(143, 108, 145);
+    animation: formSlide 0.3s ease-out forwards;
+}
+.shadow{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100lvh;
+    width: 100vw;
+    background-color: black;
+    z-index: 9;
+    animation: shadow 0.2s ease-out forwards;
+}
+.close-btn {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+}
+.close-btn span {
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background-color: rgb(172, 172, 172);
+    transition: 0.3s;
+}
+.close-btn span:first-child {
+    transform: rotate(45deg);
+}
+  
+.close-btn span:last-child {
+    transform: rotate(-45deg);
+}
+.hat-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    height: 2.5rem;
+}
+
+main{
+    padding: 1.5rem; 
+    padding-top: 2rem;
+    box-sizing: border-box; 
+}
+
+.text-sm{
+    font-size: 0.75rem;
+}
+
+h1{
+    margin: auto 0;
+    font-size: 1.25rem;
+    display: inline;
+}
+
+h2{
+    margin: 0;
+}
+
+html{
+    font-size: 16px;
+}
+
+@keyframes formSlide{
+    from {
+        top: -100lvh;
+        opacity: 0;
+      }
+      to {
+        top: calc(50lvh - 11rem);
+        opacity: 1;
+      }
+}
+
+@keyframes shadow {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+      }
+    to {
+        background-color: rgba(0, 0, 0, 0.731);
+    }
+}
+
+
+@media (max-width: 360px) {
+    html{
+        font-size: 14px;
+    }
+}

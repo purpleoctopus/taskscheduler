@@ -1,0 +1,10 @@
+<button mat-button (click)="global.showLogin.set(true)">Login</button>
+<button mat-button (click)="global.showRegister.set(true)">Register</button>
+
+@if(global.showLogin()){
+    <app-login-form></app-login-form>
+}
+
+@if(global.showRegister()){
+    <app-register-form></app-register-form>
+}

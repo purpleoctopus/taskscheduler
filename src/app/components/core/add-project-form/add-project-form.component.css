@@ -1,0 +1,44 @@
+form>button{
+    display: block;
+    margin: 0 auto;
+    margin-top: 3rem;
+    background-color: purple;
+    border-radius: 0.5rem;
+}
+.selected{
+    outline: 3px solid white;
+}
+label{
+    display: block;
+    font-size: 0.85rem;
+}
+.addprojectform > h2{
+    font-size: 1rem;
+    text-align: center;
+}
+.addprojectform{
+    padding: 0 2rem;
+}
+form > *{
+    margin-top: 1rem;
+}
+  
+.color-select{
+    display: flex;
+    justify-content: space-around;
+}
+
+.color-select > div{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 0.5rem;
+}
+.color-select > .purple{
+    background: var(--purple-card);
+}
+.color-select > .cyan{
+    background: var(--cyan-card);
+}
+.color-select > .orange{
+    background: var(--orange-card);
+}
