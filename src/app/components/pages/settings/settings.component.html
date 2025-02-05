@@ -1,10 +1,15 @@
-<button mat-button (click)="global.showLogin.set(true)">Login</button>
-<button mat-button (click)="global.showRegister.set(true)">Register</button>
-
-@if(global.showLogin()){
-    <app-login-form></app-login-form>
+@if(!user){
+    <button mat-button (click)="global.showLogin.set(true)">Увійти</button>
+    <button mat-button (click)="global.showRegister.set(true)">Реєстрація</button>
 }
-
-@if(global.showRegister()){
-    <app-register-form></app-register-form>
+@else {
+    <div class="menu-authorized">
+        <h1>Привіт, {{user.username}}</h1>
+        <div>Ви - {{user.employee.name}}, {{user.employee.position}}</div>
+        <div>Ваша пошта: {{user.email}}</div>
+        <div class="btn-wrapper">
+            <button mat-button class="logout" (click)="logout()">Вийти</button>
+            <button mat-button class="delete" (click)="delete()">Видалити</button>
+        </div>
+    </div>
 }

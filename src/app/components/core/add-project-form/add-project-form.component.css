@@ -8,20 +8,6 @@ form>button{
 .selected{
     outline: 3px solid white;
 }
-label{
-    display: block;
-    font-size: 0.85rem;
-}
-.addprojectform > h2{
-    font-size: 1rem;
-    text-align: center;
-}
-.addprojectform{
-    padding: 0 2rem;
-}
-form > *{
-    margin-top: 1rem;
-}
   
 .color-select{
     display: flex;

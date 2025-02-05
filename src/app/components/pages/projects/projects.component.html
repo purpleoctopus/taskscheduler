@@ -1,6 +1,8 @@
 <div class="hat-container">
     <h1>Проекти</h1>
-    <button mat-button (click)="global.showAddProject.set(true)">Створити</button>
+    @if(projects){
+        <button mat-button (click)="global.showAddProject.set(true)">Створити</button>
+    }
 </div>
 
 

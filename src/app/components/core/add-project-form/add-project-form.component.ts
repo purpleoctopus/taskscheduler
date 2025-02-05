@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { ProjectService } from '../../../services/project.service';
 import { ColorTheme } from '../../../models/project.model';
+import { AuthService } from '../../../services/auth.service';
+import { Toast } from '@capacitor/toast';
 
 @Component({
   selector: 'app-add-project-form',
@@ -16,12 +18,14 @@ export class AddProjectFormComponent {
   public color: ColorTheme = ColorTheme.Purple;
   ColorTheme = ColorTheme;
 
-  constructor(public global: GlobalService, private projectService: ProjectService) {}
+  constructor(public global: GlobalService, private projectService: ProjectService, private auth: AuthService) {}
 
   public async createProject(){
-    await this.projectService.add({name: this.name, 
-      ownerId: '2deb7cb0-55d0-423e-b193-a45d1546d708', colortheme: this.color});
+    if(!this.auth.token) {Toast.show({text: 'Лишенько, щось пішло не так :(', duration: 'long'}); return;}
+    if(this.name.length < 2) {Toast.show({text: 'Назва введена некоректно', duration: 'long'}); return;}
+    await this.projectService.add({name: this.name, colortheme: this.color});
     this.global.showAddProject.set(false);
+    document.location.reload();
   }
 
   public selectColor(color: ColorTheme){

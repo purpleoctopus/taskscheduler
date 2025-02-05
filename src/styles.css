@@ -2,6 +2,10 @@
     --purple-card: linear-gradient(120deg, rgb(187, 7, 187) 50%, rgb(92, 1, 92) 110%);
     --cyan-card: linear-gradient(120deg, cyan 50%, rgb(2, 152, 152) 110%);
     --orange-card: linear-gradient(120deg, orange 50%, rgb(162, 108, 8) 110%);
+    --red-dark: rgb(131, 9, 9);
+    --red-light: rgb(246, 124, 124);
+    --green-dark: rgb(1, 97, 1);
+    --green-light: rgb(80, 162, 80);
 }
 
 html{ color: white; user-select: none;}
@@ -14,7 +18,7 @@ body {
 input{
     outline: 0;
 }
-input[type="text"]{
+input[type="text"], input[type="password"]{
     border: 1px solid rgb(143, 108, 145);;
     background-color: rgb(33,33,33);
     border-radius: 0.25rem;
@@ -34,7 +38,21 @@ input[type="text"]{
     background-color: rgb(15, 15, 15);
     border-radius: 0.75rem;
     border: 1px solid rgb(143, 108, 145);
-    animation: formSlide 0.3s ease-out forwards;
+    animation: formSlide22 0.3s ease-out forwards;
+}
+.form > h2{
+    font-size: 1rem;
+    text-align: center;
+}
+.form{
+    padding: 0 2rem;
+}
+form > *{
+    margin-top: 1rem;
+}
+label{
+    display: block;
+    font-size: 0.85rem;
 }
 .shadow{
     position: fixed;
@@ -87,7 +105,6 @@ main{
 }
 
 h1{
-    margin: auto 0;
     font-size: 1.25rem;
     display: inline;
 }
@@ -100,13 +117,33 @@ html{
     font-size: 16px;
 }
 
-@keyframes formSlide{
+@keyframes formSlide12{
+    from {
+        top: -100lvh;
+        opacity: 0;
+      }
+      to {
+        top: calc(50lvh - 6rem);
+        opacity: 1;
+      }
+}
+@keyframes formSlide22{
     from {
         top: -100lvh;
         opacity: 0;
       }
       to {
         top: calc(50lvh - 11rem);
+        opacity: 1;
+      }
+}
+@keyframes formSlide32{
+    from {
+        top: -100lvh;
+        opacity: 0;
+      }
+      to {
+        top: calc(50lvh - 16rem);
         opacity: 1;
       }
 }

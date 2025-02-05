@@ -7,4 +7,18 @@
         <span></span>
         <span></span>
     </div>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+        <h2>Реєстрація</h2>
+        <label for="username">Юзернейм:</label>
+        <input type="text" id="username" formControlName="username">
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" formControlName="password">
+        <label for="email">Е-мейл:</label>
+        <input type="text" id="email" formControlName="email">
+        <label for="name">Ім'я</label>
+        <input type="text" id="name" formControlName="name">
+        <label for="position">Позиція в компанії (наприклад, Java Senior)</label>
+        <input type="text" id="position" formControlName="position">
+        <button type="submit" mat-button>Зареєструватись</button>
+    </form>
 </div>

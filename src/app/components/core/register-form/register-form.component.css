@@ -1,0 +1,15 @@
+form>input[type="text"]{
+    margin-top: 0.5rem;
+}
+.form-container{
+    height: 32rem;
+    animation: formSlide32 0.3s ease-out forwards;
+}
+button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+input[type="text"], input[type="password"]{
+    margin-top: 0.5rem;
+}

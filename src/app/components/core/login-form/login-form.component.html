@@ -7,4 +7,12 @@
         <span></span>
         <span></span>
     </div>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+        <h2>Логін</h2>
+        <label for="username">Юзернейм:</label>
+        <input type="text" id="username" formControlName="username">
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" formControlName="password">
+        <button type="submit" mat-button>Увійти</button>
+    </form>
 </div>

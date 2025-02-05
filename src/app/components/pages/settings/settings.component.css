@@ -1,0 +1,25 @@
+.menu-authorized{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100vh - 60px - 4rem);
+}
+.menu-authorized>*{
+    text-align: center;
+}
+.logout{
+    background-color: purple;
+}
+.delete{
+    background-color: var(--red-dark);
+    color: var(--red-light) !important;
+}
+.btn-wrapper>button{
+    border-radius: 0.75rem;
+}
+.btn-wrapper{
+    margin-top: 1.5rem;
+    justify-content: center;
+    gap:10px;
+    display: flex;
+}

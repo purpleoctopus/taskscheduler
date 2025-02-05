@@ -1,0 +1,27 @@
+.form-container{
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    animation: formSlide12 0.3s ease-out forwards;
+}
+.btn-wrapper{
+    margin-top: 1.5rem;
+    justify-content: center;
+    gap:10px;
+    display: flex;
+}
+.btn-wrapper>button{
+    border-radius: 0.75rem;
+}
+h2{
+    font-size: 1rem;
+    text-align: center;
+}
+.yes{
+    background-color: var(--red-dark);
+    color: var(--red-light) !important;
+}
+.no{
+    background-color: var(--green-dark);
+    color: var(--green-light) !important;
+}
