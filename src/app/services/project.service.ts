@@ -12,7 +12,7 @@ export class ProjectService {
 
   async getAll(){
     try{
-      const res = (await this.http.get(`/projects`).showLoading()).data
+      const res = (await this.http.get(`/projects`)).data
       return res
     }catch(error){
       Toast.show({
@@ -23,8 +23,21 @@ export class ProjectService {
     }
   }
 
+  async getById(id: string){
+   const res = (await this.http.get(`/projects/${id}`)).data
+   return [res.project, res.isOwner]
+  }
+
+  async deleteById(id: string){
+    await this.http.delete(`/projects/${id}`)
+  }
+
   async add(value: CreateProjectDTO){
-    const res = await this.http.post('/projects', value).showLoading()
+    const res = await this.http.post('/projects', value)
     return res
+  }
+
+  async leaveById(id: string){
+    await this.http.put(`/projects/leave/${id}`)
   }
 }

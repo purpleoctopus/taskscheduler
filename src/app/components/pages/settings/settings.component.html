@@ -1,9 +1,14 @@
-@if(!user){
-    <button mat-button (click)="global.showLogin.set(true)">Увійти</button>
-    <button mat-button (click)="global.showRegister.set(true)">Реєстрація</button>
+@if(user === undefined){
+    <div class="menu-center unauthorized">
+        <h1>Авторизація</h1>
+        <div class="btn-wrapper-vert">
+            <button mat-button (click)="login()">Увійти</button>
+            <button mat-button (click)="register()">Реєстрація</button>
+        </div>
+    </div>
 }
-@else {
-    <div class="menu-authorized">
+@else if(user){
+    <div class="menu-center">
         <h1>Привіт, {{user.username}}</h1>
         <div>Ви - {{user.employee.name}}, {{user.employee.position}}</div>
         <div>Ваша пошта: {{user.email}}</div>
@@ -11,5 +16,11 @@
             <button mat-button class="logout" (click)="logout()">Вийти</button>
             <button mat-button class="delete" (click)="delete()">Видалити</button>
         </div>
+    </div>
+    <div class="notification-container" routerLink="/notifications">
+        <img src="./bell-icon.png">
+        @if(hasNotification){
+            <div class="red-dot"></div>
+        }
     </div>
 }

@@ -1,0 +1,39 @@
+.notification{
+    display: flex;
+    justify-content: space-between;
+}
+.notification:not(:last-child){
+    margin-bottom: 1rem;
+}
+.reject{
+    background-color: var(--red-dark);
+    color: var(--red-light) !important;
+}
+.apply{
+    background-color: var(--green-dark);
+    color: var(--green-light) !important;
+    margin-bottom: 0.5rem;
+}
+button{
+    display: block;
+    border-radius: 0.5rem;
+}
+.notification>div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.no-notifications{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    line-height: 100vh;
+    font-size: 1rem;
+}
+.notification-title{
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}

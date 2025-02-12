@@ -1,0 +1,13 @@
+<div class="hat-container">
+    <h1>{{project?.name}}</h1>
+</div>
+
+@if(project){
+    <app-project-employees [owner]="project.owner" [employees]="project.employees"></app-project-employees>
+}
+<button mat-button class="add" (click)="inviteEmployee()">Додати людей</button>
+@if(isOwner){
+    <button mat-button class="delete" (click)="deleteProject()">Видалити</button>
+}@else {
+    <button mat-button class="delete" (click)="leaveProject()">Вийти</button>
+}

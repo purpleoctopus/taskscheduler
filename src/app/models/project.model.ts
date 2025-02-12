@@ -10,6 +10,6 @@ export interface Project{
     name: string,
     owner: Employee,
     tasks: Task[],
-    employees?: Employee[],
+    employees: Employee[],
     colortheme?: ColorTheme
 }

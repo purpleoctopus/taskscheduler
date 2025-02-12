@@ -1,0 +1,21 @@
+<div class="container" #container>
+    <div class="head" #head (click)="toggleEmployees()">
+        <div>Люди</div>
+        <div class="arrow" #arrow>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="employees" #employeesparent>
+        <div class="employee">
+            <div>{{owner.name}}</div>
+            <img src="./crown-icon.png" class="crown-icon">
+        </div>
+        @for (employee of employees; track $index) {
+            <div class="employee">
+                <div>{{employee.name}}</div>
+                <div>BUTTONS</div>
+            </div>   
+        }
+    </div>
+</div>

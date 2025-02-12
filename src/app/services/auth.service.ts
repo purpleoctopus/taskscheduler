@@ -57,7 +57,7 @@ export class AuthService {
       data: user
     })
     if(res.status === 200){
-      await this.login({username: user.username, password: user.password})
+      await this.login(user)
     }
   }
 }

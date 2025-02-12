@@ -1,23 +1,38 @@
-import { Component} from '@angular/core';
+import { Component, OnInit, ViewContainerRef} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from "./components/core/footer/footer.component";
-import { GlobalService } from './services/global.service';
-import { LoginFormComponent } from './components/core/login-form/login-form.component';
-import { RegisterFormComponent } from './components/core/register-form/register-form.component';
-import { AuthService } from './services/auth.service';
 import { LoadingComponent } from './components/core/loading/loading.component';
-import { ConfirmDialogComponent } from './components/core/confirm-dialog/confirm-dialog.component';
-import { DialogService } from './services/dialog.service';
+import { App } from '@capacitor/app';
+import { Location } from '@angular/common';
+import { AuthService } from './services/auth.service';
+import { NotificationService } from './services/notification.service';
+
+declare global{
+  interface Promise<T> {
+    showLoading(): Promise<T>;
+  }
+}
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FooterComponent, LoginFormComponent, 
-    RegisterFormComponent, LoadingComponent, ConfirmDialogComponent],
+  imports: [RouterOutlet, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent{
-  title = '';
+export class AppComponent implements OnInit{
+  constructor(private view: ViewContainerRef, private location: Location, private auth: AuthService,
+    private notification: NotificationService
+  ) {
+    Promise.prototype.showLoading = function <T>(this: Promise<T>): Promise<T> {
+      const component = view.createComponent(LoadingComponent);
+      return this.finally(() => component.destroy());
+    };
+  }
 
-  constructor(private auth: AuthService, public global: GlobalService, public dialog: DialogService) {}
+  ngOnInit(): void {
+    this.notification.startPolling();
+    App.addListener('backButton', ()=>{
+      this.location.back()
+    })
+  }
 }

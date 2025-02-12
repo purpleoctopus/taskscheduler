@@ -1,11 +1,44 @@
-.menu-authorized{
+.menu-center{
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: calc(100vh - 60px - 4rem);
 }
-.menu-authorized>*{
+.menu-center>*{
     text-align: center;
+}
+.notification-container{
+    position: fixed;
+    padding: 1rem;
+    top:0;
+    right: 0;
+    height: 2rem;
+    width: 2rem;
+}
+.notification-container>img{
+    height: 100%;
+}
+.red-dot{
+    position: absolute;
+    z-index: 100;
+    top:0.75rem;
+    right: 0.75rem;
+    background-color: red;
+    border-radius: 2rem;
+    width: 0.65rem;
+    height: 0.65rem;
+}
+h1{
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+.btn-wrapper-vert>button{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+}
+.unauthorized>*:not(:last-child){
+    margin-bottom: 2rem;
 }
 .logout{
     background-color: purple;

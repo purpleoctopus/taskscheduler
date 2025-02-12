@@ -1,0 +1,16 @@
+.delete{
+    background-color: var(--red-dark);
+    color: var(--red-light) !important;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+.add{
+    background-color: var(--green-dark);
+    color: var(--green-light) !important;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+button{
+    display: block;
+    border-radius: 0.5rem;
+}

@@ -1,9 +1,10 @@
 import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { ColorTheme, Project } from '../../../models/project.model';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-project-card',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './project-card.component.html',
   styleUrl: './project-card.component.css'
 })

@@ -1,5 +1,5 @@
 {
-    "appId": "com.denysostapiuk.devlighttask",
-    "appName": "DevlightTask",
+    "appId": "com.denysostapiuk.taskscheduler",
+    "appName": "TaskScheduler",
     "webDir": "www"
 }

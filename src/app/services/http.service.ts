@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { CapacitorHttp } from '@capacitor/core';
+import { CapacitorHttp, HttpResponse } from '@capacitor/core';
 import { AuthService } from './auth.service';
 import { environment } from '../../environments/environment.development';
 import { Toast } from '@capacitor/toast';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
-  async request(method: 'GET' | 'POST' | 'PUT' | 'DELETE', endpoint: string, body?: any) {
+  async request(method: 'GET' | 'POST' | 'PUT' | 'DELETE', endpoint: string, body?: any, noToken?: boolean) {
+    if(!this.auth.token && !noToken) {this.router.navigate(['/settings']);return {} as HttpResponse;}
     try {
       const response = await CapacitorHttp.request({
         method,
@@ -23,7 +25,9 @@ export class HttpService {
       });
       if (response.status === 403) {
         await this.auth.clearToken();
-        return response
+        if(endpoint != '/notifications/long-polling'){
+          this.router.navigate(['/settings']);
+        }
       }
       if(response.data && response.data.error){
         Toast.show({text: response.data.error, duration:'long'});
@@ -44,7 +48,7 @@ export class HttpService {
     return this.request('POST', endpoint, body);
   }
 
-  async put(endpoint: string, body: any) {
+  async put(endpoint: string, body?: any) {
     return this.request('PUT', endpoint, body);
   }
 

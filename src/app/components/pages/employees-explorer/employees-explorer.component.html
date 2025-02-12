@@ -1,0 +1,10 @@
+<div class="hat-container">
+    <h1>Запросити працівника у проект</h1>
+</div>
+
+@for (user of users; track $index) {
+    <div class="employee">
+        <div>Ім'я: {{user.employee.name}}, Позиція: {{user.employee.position}}</div>
+        <button mat-button class="add" (click)="invite(user.id)">Додати</button>
+    </div>
+}

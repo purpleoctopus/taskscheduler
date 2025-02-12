@@ -1,0 +1,50 @@
+.container{
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    height: 1.25rem;
+    background-color: rgb(146, 146, 146);
+}
+.employee{
+    display: flex;
+    justify-content: space-between;
+}
+.employee:not(:last-child){
+    margin-bottom: 2.25rem;
+}
+.employees{
+    background-color: rgb(81, 81, 81);
+    height: 1.25rem;
+    max-height: 70vh;
+    padding: 1rem;
+    transition: height 0.3s ease-out;
+}
+.crown-icon{
+    height: 1rem;
+}
+.arrow{
+    height: 1rem;
+    width: 1rem;
+    rotate: 180deg;
+    transition: rotate 0.3s ease;
+}
+.arrow.active{
+    rotate: 0deg;
+}
+.arrow>span{
+    border-top: 4px solid white;
+    position: absolute;
+    width: 1rem;
+}
+.arrow>span:first-child{
+    rotate: -45deg;
+    transform: translateX(calc(-0.5rem + 2px));
+}
+.arrow>span:last-child{
+    rotate: 45deg;
+    transform: translateX(calc(0.5rem - 2px));
+}

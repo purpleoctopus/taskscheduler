@@ -93,7 +93,6 @@ label{
     margin-bottom: 1.25rem;
     height: 2.5rem;
 }
-
 main{
     padding: 1.5rem; 
     padding-top: 2rem;
@@ -107,6 +106,7 @@ main{
 h1{
     font-size: 1.25rem;
     display: inline;
+    margin: auto 0;
 }
 
 h2{

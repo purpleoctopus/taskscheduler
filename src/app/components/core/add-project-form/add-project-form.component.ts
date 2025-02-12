@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { GlobalService } from '../../../services/global.service';
 import { FormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { ProjectService } from '../../../services/project.service';
 import { ColorTheme } from '../../../models/project.model';
-import { AuthService } from '../../../services/auth.service';
 import { Toast } from '@capacitor/toast';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-add-project-form',
@@ -14,18 +13,19 @@ import { Toast } from '@capacitor/toast';
   styleUrl: './add-project-form.component.css'
 })
 export class AddProjectFormComponent {
+  private result = new Subject<Promise<unknown> | void>();
+  public result$ = this.result.asObservable();
   public name: string = '';
   public color: ColorTheme = ColorTheme.Purple;
   ColorTheme = ColorTheme;
 
-  constructor(public global: GlobalService, private projectService: ProjectService, private auth: AuthService) {}
+  constructor(private projectService: ProjectService) {}
 
   public async createProject(){
-    if(!this.auth.token) {Toast.show({text: 'Лишенько, щось пішло не так :(', duration: 'long'}); return;}
     if(this.name.length < 2) {Toast.show({text: 'Назва введена некоректно', duration: 'long'}); return;}
-    await this.projectService.add({name: this.name, colortheme: this.color});
-    this.global.showAddProject.set(false);
-    document.location.reload();
+    const res = await this.projectService.add({name: this.name, colortheme: this.color})
+    if(res.status == 200)
+      this.result.next()
   }
 
   public selectColor(color: ColorTheme){
@@ -41,5 +41,9 @@ export class AddProjectFormComponent {
         elem.classList.remove('selected')
       }
     }
+  }
+
+  public close(){
+    this.result.next()
   }
 }

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">DevlightScheduler</string>
-    <string name="title_activity_main">DevlightScheduler</string>
-    <string name="package_name">com.denysostapiuk.devlighttask</string>
-    <string name="custom_url_scheme">com.denysostapiuk.devlighttask</string>
+    <string name="app_name">TaskScheduler</string>
+    <string name="title_activity_main">TaskScheduler</string>
+    <string name="package_name">com.denysostapiuk.taskscheduler</string>
+    <string name="custom_url_scheme">com.denysostapiuk.taskscheduler</string>
 </resources>

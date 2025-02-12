@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { GlobalService } from '../../../services/global.service';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { MatButton } from '@angular/material/button';
 import { Toast } from '@capacitor/toast';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-register-form',
@@ -12,9 +12,11 @@ import { Toast } from '@capacitor/toast';
   styleUrl: './register-form.component.css'
 })
 export class RegisterFormComponent {
+  private result = new Subject<void>();
+  public result$ = this.result.asObservable();
   public form: FormGroup;
   
-  constructor(private authService: AuthService, private fb: FormBuilder, public global: GlobalService){
+  constructor(private authService: AuthService, private fb: FormBuilder){
     this.form = fb.group({
         username: ['', [Validators.required, Validators.minLength(3)]],
         password: ['', [Validators.required, Validators.minLength(8)]],
@@ -32,13 +34,16 @@ export class RegisterFormComponent {
           email: this.form.value['email'],
           employee: {name: this.form.value['name'], position: this.form.value['position']}
         }).showLoading();
-        this.global.showRegister.set(false);
-        document.location.reload();
+        this.result.next()
       }else{
         Toast.show({
           text: 'Дані введено неправильно',
           duration: 'long'
         })
       }
+  }
+  
+  public close(){
+    this.result.next()
   }
 }

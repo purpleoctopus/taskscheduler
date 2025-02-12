@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { GlobalService } from '../../../services/global.service';
-import { DialogService } from '../../../services/dialog.service';
 import { MatButton } from '@angular/material/button';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-confirm-dialog',
@@ -10,12 +9,15 @@ import { MatButton } from '@angular/material/button';
   styleUrl: './confirm-dialog.component.css'
 })
 export class ConfirmDialogComponent {
-  constructor(public dialog: DialogService){}
+  private result = new Subject<boolean>()
+  public result$ = this.result.asObservable()
+
+  constructor(){}
 
   public yes(){
-    this.dialog.result(true)
+    this.result.next(true)
   }
   public no(){
-    this.dialog.result(false)
+    this.result.next(false)
   }
 }

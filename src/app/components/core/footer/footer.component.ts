@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { GlobalService } from '../../../services/global.service';
 import { AuthService } from '../../../services/auth.service';
+import { NotificationService } from '../../../services/notification.service';
+import { Toast } from '@capacitor/toast';
 
 @Component({
   selector: 'app-footer',
@@ -9,14 +10,6 @@ import { AuthService } from '../../../services/auth.service';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
-export class FooterComponent {
-  constructor(private auth: AuthService, private global: GlobalService, private router: Router){ }
-
-  public navigate(route: string){
-    if(route === '/projects' && !this.auth.token){
-      this.global.showLogin.set(true)
-      return
-    }
-    this.router.navigate([route])
-  }
+export class FooterComponent{
+  constructor (private notification: NotificationService){}
 }

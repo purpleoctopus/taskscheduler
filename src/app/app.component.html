@@ -3,19 +3,3 @@
     <div class="footer-filler"></div>
 </main>
 <app-footer></app-footer>
-
-@if(global.showLogin()){
-    <app-login-form></app-login-form>
-}
-
-@if(global.showRegister()){
-    <app-register-form></app-register-form>
-}
-
-@if(global.showLoading()){
-    <app-loading></app-loading>
-}
-
-@if (dialog.show()) {
-    <app-confirm-dialog></app-confirm-dialog>
-}

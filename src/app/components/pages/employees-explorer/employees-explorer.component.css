@@ -1,0 +1,14 @@
+.employee{
+    display: flex;
+    justify-content: space-between;
+}
+.employee:not(:last-child){
+    margin-bottom: 1rem;
+}
+.add{
+    background-color: var(--green-dark);
+    color: var(--green-light) !important;
+}
+button{
+    border-radius: 0.5rem;
+}

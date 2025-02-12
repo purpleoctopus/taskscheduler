@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "com.denysostapiuk.devlighttask"
+    namespace "com.denysostapiuk.taskscheduler"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.denysostapiuk.devlighttask"
+        applicationId "com.denysostapiuk.taskscheduler"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
